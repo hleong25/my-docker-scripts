@@ -1,0 +1,20 @@
+# Use henry/henry as user/password credentials
+version: '3.9'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - /docker-data-store/mongodb:/data/db
+    env_file:
+      - mongodb.env
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    env_file:
+      - mongodb.env
