@@ -6,8 +6,11 @@ services:
   mongo:
     image: mongo
     restart: always
+    ports:
+      - 27017:27017
     volumes:
       - /docker-data-store/mongodb:/data/db
+      - /docker-data-store/share:/data/share
     env_file:
       - mongodb.env
 
